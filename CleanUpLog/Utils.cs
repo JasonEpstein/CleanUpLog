@@ -104,6 +104,7 @@ namespace CleanUpLog
                     HitsBefore = c1.Count(),
                     SumBefore = c1.Sum(x => x.TimeTaken),
                     MaxBefore = c1.Max(x => x.TimeTaken),
+                    MinBefore = c1.Min(x=>x.TimeTaken),
                     Comparable = c1.First().IsComparable
                 })
                 .OrderByDescending(x => x.Comparable)
@@ -117,6 +118,7 @@ namespace CleanUpLog
                     HitsAfter = c1.Count(),
                     SumAfter = c1.Sum(x => x.TimeTaken),
                     MaxAfter = c1.Max(x => x.TimeTaken),
+                    MinAfter = c1.Min(x => x.TimeTaken),
                     Comparable = c1.First().IsComparable
                 })
                 .OrderByDescending(x => x.Comparable)
@@ -135,7 +137,9 @@ namespace CleanUpLog
                     MaxBefore = beforeStat.MaxBefore,
                     MaxAfter = afterStat.MaxAfter,
                     SumBefore = beforeStat.SumBefore,
-                    SumAfter = afterStat.SumAfter
+                    SumAfter = afterStat.SumAfter,
+                    MinBefore = beforeStat.MinBefore,
+                    MinAfter = afterStat.MinAfter
                 }).ToList();
         }
     }
@@ -158,21 +162,27 @@ namespace CleanUpLog
         public double? MaxBefore { get; set; }
 
         [CsvColumn(FieldIndex = 6)]
-        public bool Comparable { get; set; }
+        public double? MinBefore { get; set; }
 
         [CsvColumn(FieldIndex = 7)]
-        public int HitsAfter { get; set; }
-
-        [CsvColumn(FieldIndex = 8)]
-        public double? SumAfter { get; set; }
+        public bool Comparable { get; set; }
 
         [CsvColumn(FieldIndex = 9)]
-        public double? AvgAfter => (double) (SumAfter / HitsAfter);
+        public int HitsAfter { get; set; }
 
         [CsvColumn(FieldIndex = 10)]
+        public double? SumAfter { get; set; }
+
+        [CsvColumn(FieldIndex = 11)]
+        public double? AvgAfter => (double) (SumAfter / HitsAfter);
+
+        [CsvColumn(FieldIndex = 12)]
         public double? MaxAfter { get; set; }
 
-        [CsvColumn(FieldIndex = 11, Name = "Improvement %")]
+        [CsvColumn(FieldIndex = 13)]
+        public double? MinAfter { get; set; }
+
+        [CsvColumn(FieldIndex = 14, Name = "Improvement %")]
         public double? Improvement => (AvgBefore-AvgAfter)/AvgBefore * 100;
     }
 }
