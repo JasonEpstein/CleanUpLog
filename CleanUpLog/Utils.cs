@@ -37,7 +37,7 @@ namespace CleanUpLog
                 @"/mps/dealer/contracts/summary",
                 @"/mps/dealer/contracts/summary",
                 @"/mps/dealer/proposals/convert/summary",
-                @"/comparables.Add(/proposal/current/products-available",
+                @"/mps/proposal/current/products-available",
                 @"/dealer/proposals/convert/customer-information",
                 @"/dealer/proposals/create/customer-information",
                 @"/dealer/proposals/create/summary",
