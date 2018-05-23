@@ -15,8 +15,8 @@ namespace CleanUpLog
             var inputFileNameBefore = @"C:\TEMP\before.txt";
             var inputFileNameAfter = @"C:\TEMP\after.txt";
             var outputFileName = @"C:\TEMP\FILE2.csv";
-            DateTime? startTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0,0,0);
-            DateTime? endTime= new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 1, 0, 0);
+            DateTime? startTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 1,0,0);
+            DateTime? endTime= new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 2, 0, 0);
 
             ConfigureArgs(args, ref inputFileNameBefore, ref inputFileNameBefore, ref outputFileName);
                                             
