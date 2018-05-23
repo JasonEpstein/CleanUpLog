@@ -184,5 +184,8 @@ namespace CleanUpLog
 
         [CsvColumn(FieldIndex = 14, Name = "Improvement %")]
         public double? Improvement => (AvgBefore-AvgAfter)/AvgBefore * 100;
+       
+        [CsvColumn(FieldIndex = 15, Name = "Improvement Min %")]
+        public double? ImprovementMin => (MinBefore - MinAfter) / MinBefore * 100;
     }
 }
